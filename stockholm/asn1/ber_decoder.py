@@ -32,6 +32,15 @@ def lvq_decode(byte_string):
     return result, size
 
 
+def long_format_length_decode(byte_string):
+    length = 0
+    number_of_octets = len(byte_string)
+    shift = 8 * (number_of_octets - 1)
+    for i in range(number_of_octets):
+        length |= ord(byte_string[i]) << shift
+        shift -= 8
+    return length
+
 def get_bit(number, index):
     """
     Return the bit at index position (starts from 0) from the number in base 2.
@@ -137,18 +146,10 @@ class Tag(object):
         else:  # definite size
             if first_octet & 128 == 128:  # long format
                 number_of_extra_length_octets = first_octet - 128
-                result = 0
                 self.length_octets = 1 + number_of_extra_length_octets
                 self.header_octets = self.identifier_octets + self.length_octets  # The offset of octets to read the content
                 index = self.identifier_octets + 1
-                if number_of_extra_length_octets > 1:
-                    bin_value = ''
-                    for i in range(number_of_extra_length_octets):  # TODO ver de arreglar esto usando bitwise
-                        bin_value = "{}{}".format(bin_value, bin(ord(byte_string[index]))[2:].zfill(8))
-                        index += 1
-                    self.data_length = int(bin_value, 2)
-                else:
-                    self.data_length = ord(byte_string[index])
+                self.data_length = long_format_length_decode(byte_string[index:index + number_of_extra_length_octets])
                 self.extra_data_length = 0
             else:  # short format
                 self.length_octets = 1
