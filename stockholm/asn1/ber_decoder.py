@@ -48,7 +48,6 @@ class Tag(object):
     :param byte_string: string of bytes
     """
     _type_name = ('primitive', 'constructed')
-    indefinite_tag_headers = ('\xa1', '\x00')  # TODO Borrar
 
     def __init__(self, byte_string=None, must_load_content=True):
         self.number = None
@@ -136,14 +135,15 @@ class Tag(object):
             self.header_octets = self.identifier_octets + self.length_octets
             self.extra_data_length = len(byte_string) - self.header_octets
         else:  # definite size
-            if get_bit(first_octet, 7):  # long format
-                number_of_extra_length_octets = first_octet - (first_octet & 128)
+            if first_octet & 128 == 128:  # long format
+                number_of_extra_length_octets = first_octet - 128
+                result = 0
                 self.length_octets = 1 + number_of_extra_length_octets
                 self.header_octets = self.identifier_octets + self.length_octets  # The offset of octets to read the content
                 index = self.identifier_octets + 1
                 if number_of_extra_length_octets > 1:
                     bin_value = ''
-                    for i in range(number_of_extra_length_octets):
+                    for i in range(number_of_extra_length_octets):  # TODO ver de arreglar esto usando bitwise
                         bin_value = "{}{}".format(bin_value, bin(ord(byte_string[index]))[2:].zfill(8))
                         index += 1
                     self.data_length = int(bin_value, 2)
