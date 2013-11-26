@@ -2,6 +2,7 @@
 import logging
 
 from . import Module
+from . import custom_tags as ct
 
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.NullHandler())
@@ -35,7 +36,7 @@ class CallModule(Module):
         super(CallModule, self).__init__(tag, byte_string)
 
     def __repr__(self):
-        return "Call Module - {} ({})".format(self.__class__.__name__, self.tag.number)
+        return "Call Module - {} ({})".format(self.__class__.__name__, self.tag.header.number)
 
 
 class Transit(CallModule):
@@ -74,6 +75,9 @@ class MSOriginatingSMSinSMS_IWMSC(CallModule):
 
 
 class MSTerminatingSMSinMSC(CallModule):
+    data_tags = {
+        6: ct.DateTag
+    }
     def __init__(self, tag=None, byte_string=None):
         super(MSTerminatingSMSinMSC, self).__init__(tag, byte_string)
 

@@ -23,8 +23,8 @@ def main():
     for cdr in CallDataRecordFactory.get_cdrs_from_data(data):
         count += 1
         for data_tag in cdr.call_module.data_tags:
-            #cdr.pretty_print()
-            pass
+            cdr.pretty_print()
+            #pass
     print(count)
 
 if __name__ == "__main__":

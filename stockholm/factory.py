@@ -29,37 +29,41 @@ class CallDataRecordFactory(object):
             ARBITRARY_CDR_TAG_LENGTH = len(byte_string)
         index_from = 0
         while index_from != len(byte_string):
-            cdr_tag = ber_decoder.Tag(byte_string[index_from:index_from + ARBITRARY_CDR_TAG_LENGTH], False)
-            if cdr_tag.type == 1:  # constructed
-                index_from += cdr_tag.header_octets
-                if cdr_tag.data_length > 0:  # Definite length
-                    call_module_tag = ber_decoder.Tag(byte_string[index_from:index_from + cdr_tag.data_length])
+            cdr_tag = ber_decoder.Tag(load_value=False)
+            cdr_tag.decode(byte_string[index_from:index_from + ARBITRARY_CDR_TAG_LENGTH])
+            if cdr_tag.header.type == 1:  # constructed
+                index_from += cdr_tag.header.octets
+                if cdr_tag.header.data_length > 0:  # Definite length
+                    call_module_tag = ber_decoder.Tag()
+                    call_module_tag.decode(byte_string[index_from:index_from + cdr_tag.header.data_length])
                     #print("New CallDataRecord - {}".format(cdr_tag))
-                    if call_module_tag.number in CallDataRecordFactory.call_modules_dict:
+                    if call_module_tag.header.number in CallDataRecordFactory.call_modules_dict:
                         cdr = call_data_record.CallDataRecord()
                         cdr.tag = cdr_tag
-                        cdr.call_module = CallDataRecordFactory.call_modules_dict.get(call_module_tag.number)(call_module_tag)
+                        cdr.call_module = CallDataRecordFactory.call_modules_dict.get(call_module_tag.header.number)(call_module_tag)
                         #print("Found Call Module -> {}".format(cdr.call_module))
-                        index_from += call_module_tag.total_octets
+                        index_from += call_module_tag.header.total_octets
                         cdr.call_module.decode()
-                        if cdr_tag.data_length > call_module_tag.total_octets: #  This CDR has event Modules
+                        if cdr_tag.header.data_length > call_module_tag.header.total_octets: #  This CDR has event Modules
                             ## Bypass the sequence and decode the event modules
-                            sequence_length = cdr_tag.data_length - call_module_tag.total_octets
+                            sequence_length = cdr_tag.header.data_length - call_module_tag.header.total_octets
                             end_of_sequence_octet = index_from + sequence_length
-                            event_module_sequence_tag = ber_decoder.Tag(byte_string[index_from:end_of_sequence_octet], False)
-                            optional_event_modules_length = sequence_length - event_module_sequence_tag.header_octets
-                            index_from += event_module_sequence_tag.header_octets
+                            event_module_sequence_tag = ber_decoder.Tag(load_value=False)
+                            event_module_sequence_tag.decode(byte_string[index_from:end_of_sequence_octet])
+                            optional_event_modules_length = sequence_length - event_module_sequence_tag.header.octets
+                            index_from += event_module_sequence_tag.header.octets
                             ##
                             while optional_event_modules_length > 0:
-                                event_module_tag = ber_decoder.Tag(byte_string[index_from:index_from + event_module_sequence_tag.extra_data_length])
-                                if event_module_tag.number in CallDataRecordFactory.event_modules_dict:
-                                    event_module = CallDataRecordFactory.event_modules_dict.get(event_module_tag.number)(event_module_tag)
+                                event_module_tag = ber_decoder.Tag()
+                                event_module_tag.decode(byte_string[index_from:index_from + event_module_sequence_tag.header.extra_data_length])
+                                if event_module_tag.header.number in CallDataRecordFactory.event_modules_dict:
+                                    event_module = CallDataRecordFactory.event_modules_dict.get(event_module_tag.header.number)(event_module_tag)
                                     event_module.decode()
                                     cdr.add_event_module(event_module)
-                                    optional_event_modules_length -= (event_module_tag.data_length + event_module_tag.header_octets)
-                                    index_from += (event_module_tag.data_length + event_module_tag.header_octets)
+                                    optional_event_modules_length -= (event_module_tag.header.data_length + event_module_tag.header.octets)
+                                    index_from += (event_module_tag.header.data_length + event_module_tag.header.octets)
                                 else:
-                                    raise ValueError("Invalid Event Module Number {} {}".format(event_module_tag.number, index_from))
+                                    raise ValueError("Invalid Event Module Number {} {}".format(event_module_tag.header.number, index_from))
                                 while index_from < len(byte_string):
                                     if ord(byte_string[index_from]) == 0:  # Bypass Fillers
                                         index_from += 1
@@ -68,7 +72,7 @@ class CallDataRecordFactory(object):
                                         break
                         yield cdr
                     else:
-                        raise ValueError("Invalid Call Module Number {}".format(call_module_tag.number))
+                        raise ValueError("Invalid Call Module Number {}".format(call_module_tag.header.number))
                 else:
                     pass
                     #print("Skip Indefinite Tag")
