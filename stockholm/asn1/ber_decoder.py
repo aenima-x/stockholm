@@ -124,20 +124,9 @@ class Tag(object):
     _type_name = ('primitive', 'constructed')
 
     def __init__(self, header=None, load_value=True):
-        #self.number = None
-        #self.type = None
         self.header = header
         self.value = None
         self.nested_tags = ()
-        # Header
-        #self.header_octets = 0
-        #self.identifier_octets = 0
-        #self.length_octets = 0
-        # Counters
-        #self.data_length = 0
-        #self.total_octets = 0
-        #self.extra_data_length = 0
-        # Setup
         self.load_value = load_value
 
 
@@ -157,9 +146,6 @@ class Tag(object):
         Decode the Tag type, number and number of the Tag identifiers octets.
         :param byte_string: string of bytes
         """
-        #self.type = tag_type_decode(byte_string)  # 0 - primitive, 1 - constructed
-        #self.number, self.identifier_octets = tag_identifier_decode(byte_string)
-        #self.decode_length(byte_string)
         if not self.header:
             self.header = Header(byte_string)
         if self.load_value:

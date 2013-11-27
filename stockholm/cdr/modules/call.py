@@ -76,7 +76,7 @@ class MSOriginatingSMSinSMS_IWMSC(CallModule):
 
 class MSTerminatingSMSinMSC(CallModule):
     data_tags = {
-        6: ct.DateTag
+        6: ct.Date
     }
     def __init__(self, tag=None, byte_string=None):
         super(MSTerminatingSMSinMSC, self).__init__(tag, byte_string)
