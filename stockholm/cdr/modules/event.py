@@ -25,6 +25,7 @@ class EventModule(Module):
     def __repr__(self):
         return "Event Module - {} ({})".format(self.__class__.__name__, self.tag.number)
 
+
 class AoCEventModule(Module):
     def __init__(self, tag=None, byte_string=None):
         super(AoCEventModule, self).__init__(tag, byte_string)

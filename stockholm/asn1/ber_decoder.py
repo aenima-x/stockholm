@@ -128,7 +128,7 @@ class Tag(object):
         self.value = None
         self.nested_tags = ()
         self.load_value = load_value
-
+        self.name = None
 
     def __repr__(self):
         if self.header.type == 0:
