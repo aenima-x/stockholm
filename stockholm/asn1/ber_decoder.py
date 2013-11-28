@@ -132,7 +132,10 @@ class Tag(object):
 
     def __repr__(self):
         if self.header.type == 0:
-            return "[{0.header.number:<3}] - {0.value}".format(self)
+            if self.name:
+                return "[{0.name}] - {0.value}".format(self)
+            else:
+                return "[{0.header.number:<3}] - {0.value}".format(self)
         elif self.header.type == 1:
             if self.nested_tags:
                 return "[{0:<3}]\n\t{1}".format(self.header.number, "\n\t".join((str(x) for x in self.nested_tags)))

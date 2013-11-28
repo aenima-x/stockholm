@@ -24,6 +24,12 @@ class Module(object):
     def add_data_tag(self, tag):
         self.data_tags += (tag, )
 
+    def get_data_tag(self, header):
+        tag_class, name = self.__class__._data_tag_types.get(header.number, (ber_decoder.Tag, ""))
+        tag = tag_class(header)
+        tag.name = name
+        return tag
+
     def decode(self):
         if self.tag:
             if self.tag.header.type == 1 and self.tag.header.data_length > 0:
@@ -34,7 +40,7 @@ class Module(object):
                     # TODO crear un header y en base a eso crear el tag correspondiente
                     tag_content = self.tag.value[index_from:cdr_last_octet]
                     header = ber_decoder.Header(tag_content)
-                    data_tag = self.__class__._data_tag_types.get(header.number, ber_decoder.Tag)(header)
+                    data_tag = self.get_data_tag(header)
                     data_tag.decode(tag_content)
                     self.add_data_tag(data_tag)
                     if data_tag.header.type == 1 and data_tag.header.data_length > 0:

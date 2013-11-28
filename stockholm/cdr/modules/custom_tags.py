@@ -21,28 +21,23 @@ def get_int_octet_string(byte_string):
     return int(byte_string.encode('hex'), 16)
 
 
-def get_filled_octet_string(byte_string, fill_positions=0):  # TODO Borrar esta reimplementada arriba
-    raise Exception("No Usar")
-    return "".join(map(lambda x: str(ord(x)).zfill(fill_positions), byte_string))
-
-
 def get_ascii(byte_string):
     return byte_string.encode('ascii')
 
 
 class AddressString(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class AddressStringExtended(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class AgeOfLocationEstimate(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class AirInterfaceUserRate(Tag):
@@ -51,12 +46,12 @@ class AirInterfaceUserRate(Tag):
 
 class AoCCurrencyAmountSent(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ApplicationIdentifier(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class AsyncSyncIndicator(Tag):
@@ -65,17 +60,17 @@ class AsyncSyncIndicator(Tag):
 
 class BearerServiceCode(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string,)
+        return get_octet_string(byte_string,)
 
 
 class BitRate(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class BSSMAPCauseCode(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class CallAttemptState(Tag):
@@ -84,7 +79,7 @@ class CallAttemptState(Tag):
 
 class CallIDNumber(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class CAMELTDPData(Tag):  # TODO ojo es una secuencia
@@ -98,22 +93,22 @@ class CarrierIdentificationCode(Tag):
 
 class CarrierInfo(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class CarrierInformation(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class CarrierSelectionSubstitutionInformation(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class CauseCode(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ChangeInitiatingParty(Tag):
@@ -125,17 +120,17 @@ class CallPosition(Tag):
 
 class ChannelAllocationPriorityLevel(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ChannelCodings(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ChargeAreaCode(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ChargedParty(Tag):
@@ -144,32 +139,32 @@ class ChargedParty(Tag):
 
 class ChargeInformation(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ChargingCase(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ChargingIndicator(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ChargingOrigin(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ChargingUnitsAddition(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class Counter(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class CRIIndicator(Tag):
@@ -183,32 +178,32 @@ class CRIToMS(Tag):
 
 class CUGIndex(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class CUGInterlockCode(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class C7CHTMessage(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class C7ChargingMessage(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class Date(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string, 2)
+        return get_octet_string(byte_string, 2)
 
 
 class DecipheringKeys(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class DefaultCallHandling(Tag):
@@ -229,27 +224,27 @@ class DisconnectingParty(Tag):
 
 class Distributed(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class EMLPPPriorityLevel(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class EndToEndAccessDataMap(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class EosInfo(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ErrorRatio(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class EventCRIToMS(Tag):
@@ -264,7 +259,7 @@ class ExchangeIdentity(Tag):
 
 class FaultCode(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class FirstRadioChannelUsed(Tag):
@@ -277,12 +272,12 @@ class FixedNetworkUserRate(Tag):
 
 class FreeFormatData(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class FrequencyBandSupported(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class GenericDigitsSet(Tag):  # TODO Ojo ver
@@ -295,22 +290,22 @@ class GenericNumbersSet(Tag):  # TODO Ojo ver
 
 class GlobalCallReference(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class GlobalTitle(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class GlobalTitleAndSubSystemNumber(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class GSMCallReferenceNumber(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class IMEI(Tag):
@@ -334,7 +329,7 @@ class INMarkingOfMS(Tag):
 
 class INServiceTrigger(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class IntermediateRate(Tag):
@@ -343,7 +338,7 @@ class IntermediateRate(Tag):
 
 class InternalCauseAndLoc(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class IuCodec(Tag):
@@ -352,7 +347,7 @@ class IuCodec(Tag):
 
 class LCSAccuracy(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class LCSClientType(Tag):
@@ -365,7 +360,7 @@ class LCSDeferredEventType(Tag):
 
 class LegID(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class LevelOfCAMELService(Tag):
@@ -374,17 +369,17 @@ class LevelOfCAMELService(Tag):
 
 class LocationCode(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class LocationEstimate(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class MessageReference(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class MessageTypeIndicator(Tag):
@@ -393,17 +388,17 @@ class MessageTypeIndicator(Tag):
 
 class MiscellaneousInformation(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class MobileUserClass1(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class MobileUserClass2(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class MultimediaInformation(Tag):  # TODO ojo verificar
@@ -412,7 +407,7 @@ class MultimediaInformation(Tag):  # TODO ojo verificar
 
 class NetworkCallReference(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class NumberOfChannels(Tag):
@@ -421,22 +416,22 @@ class NumberOfChannels(Tag):
 
 class NumberOfMeterPulses(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class NumberOfOperations(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class NumberOfShortMessage(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class OperationIdentifier(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 
@@ -454,7 +449,7 @@ class OriginatedCode(Tag):
 
 class OriginatingLineInformation(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class OutputForSubscriber(Tag):
@@ -467,32 +462,32 @@ class OutputType(Tag):
 
 class PartialOutputRecNum(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class PChargingVector(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class PositioningDelivery(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class PointCodeAndSubSystemNumber(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class PositionAccuracy(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class PresentationAndScreeningIndicator(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ProcedureCode(Tag):
@@ -506,17 +501,17 @@ class RadioChannelProperty(Tag):
 
 class RANAPCauseCode(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class RecordSequenceNumber(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class RedirectionCounter(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class RegionalServiceUsed(Tag):
@@ -529,7 +524,7 @@ class ResponseTimeCategory(Tag):
 
 class RoamingPriorityLevel(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class Route(Tag):
@@ -543,7 +538,7 @@ class RTCDefaultServiceHandling(Tag):
 
 class RTCFailureIndicator(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class RTCNotInvokedReason(Tag):
@@ -552,7 +547,7 @@ class RTCNotInvokedReason(Tag):
 
 class RTCSessionID(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class SelectedCodec(Tag):
@@ -566,12 +561,12 @@ class ServiceCode(Tag):
 
 class ServiceFeatureCode(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ServiceKey(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class ServiceSwitchingType(Tag):
@@ -588,7 +583,7 @@ class SMSResult(Tag):
 
 class SpeechCoderPreferenceList(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class SpeechCoderVersion(Tag):
@@ -597,12 +592,12 @@ class SpeechCoderVersion(Tag):
 
 class SSCode(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class SSFChargingCase(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class SSRequest(Tag):
@@ -615,27 +610,26 @@ class SubscriberState(Tag):
 
 class SubscriptionType(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class SwitchIdentity(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class TAC(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class TargetRNCid(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class TariffClass(Tag):
-    def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+    pass
 
 
 class TariffSwitchInd(Tag):
@@ -644,32 +638,32 @@ class TariffSwitchInd(Tag):
 
 class TeleServiceCode(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class Time(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string, 2)
+        return get_octet_string(byte_string, 2)
 
 
 class TrafficActivityCode(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class TrafficClass(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class TransferDelay(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class TransitCarrierInfo(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class TransparencyIndicator(Tag):
@@ -690,7 +684,7 @@ class TypeOfCalledSubscriber(Tag):
 
 class TypeOfCallingSubscriber(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class TypeOfLocationRequest(Tag):
@@ -711,7 +705,7 @@ class UnsuccessfulPositioningDataReason(Tag):
 
 class UserClass(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
+        return get_octet_string(byte_string)
 
 
 class UserRate(Tag):
@@ -720,27 +714,10 @@ class UserRate(Tag):
 
 class UserTerminalPosition(Tag):
     def decode_value(self, byte_string):
-        return get_filled_octet_string(byte_string)
-######
-
-
-
-
-
-
-class RecordSequenceNumber(Tag):
-    def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
-
-
-class CallIDNumber(Tag):
+class UserToUserService1Information(Tag):
     def decode_value(self, byte_string):
-        return get_int_octet_string(byte_string)
-
-
-
-class TBCDString(Tag):
-    def decode_value(self, byte_string):
-        return get_tbcd_string(byte_string)
+        return get_octet_string(byte_string)
+######
