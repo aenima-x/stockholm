@@ -123,12 +123,12 @@ class Tag(object):
     """
     _type_name = ('primitive', 'constructed')
 
-    def __init__(self, header=None, load_value=True):
+    def __init__(self, header=None, load_value=True, name=None):
         self.header = header
         self.value = None
         self.nested_tags = ()
         self.load_value = load_value
-        self.name = None
+        self.name = name
 
     def __repr__(self):
         if self.header.type == 0:

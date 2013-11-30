@@ -27,1012 +27,1139 @@ def get_ascii(byte_string):
 ## Custom Tags
 
 class AccountCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(AccountCode, self).__init__(header, load_value)
-        self.name = "accountCode"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "accountCode"
+        super(AccountCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_tbcd_string(byte_string)
 
 
 class AddressString(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(AddressString, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(AddressString, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class AddressStringExtended(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(AddressStringExtended, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(AddressStringExtended, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class AgeOfLocationEstimate(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(AgeOfLocationEstimate, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "ageOfLocationEstimate"
+        super(AgeOfLocationEstimate, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class AirInterfaceUserRate(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(AirInterfaceUserRate, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(AirInterfaceUserRate, self).__init__(header, load_value, name)
 
 
 class AoCCurrencyAmountSent(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(AoCCurrencyAmountSent, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "aoCCurrencyAmountSentToUser"
+        super(AoCCurrencyAmountSent, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ApplicationIdentifier(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ApplicationIdentifier, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(ApplicationIdentifier, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class AsyncSyncIndicator(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(AsyncSyncIndicator, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(AsyncSyncIndicator, self).__init__(header, load_value, name)
 
 
 class BearerServiceCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(BearerServiceCode, self).__init__(header, load_value)
-        self.name = "bearerServiceCode"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "bearerServiceCode"
+        super(BearerServiceCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string,)
 
 
 class BitRate(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(BitRate, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(BitRate, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class BSSMAPCauseCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(BSSMAPCauseCode, self).__init__(header, load_value)
-        self.name = "bSSMAPCauseCode"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "bSSMAPCauseCode"
+        super(BSSMAPCauseCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class CallAttemptState(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(CallAttemptState, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "callAttemptState"
+        super(CallAttemptState, self).__init__(header, load_value, name)
 
 
 class CallIDNumber(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(CallIDNumber, self).__init__(header, load_value)
-        self.name = "callIdentificationNumber"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "callIdentificationNumber"
+        super(CallIDNumber, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class CAMELTDPData(Tag):  # TODO ojo es una secuencia
-    def __init__(self, header=None, load_value=True):
-        super(CAMELTDPData, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(CAMELTDPData, self).__init__(header, load_value, name)
 
 
 class CarrierIdentificationCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(CarrierIdentificationCode, self).__init__(header, load_value)
-        self.name = "carrierIdentificationCode"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "carrierIdentificationCode"
+        super(CarrierIdentificationCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_tbcd_string(byte_string)
 
 
 class CarrierInfo(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(CarrierInfo, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(CarrierInfo, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class CarrierInformation(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(CarrierInformation, self).__init__(header, load_value)
-        self.name = "carrierInformation"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "carrierInformation"
+        super(CarrierInformation, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class CarrierSelectionSubstitutionInformation(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(CarrierSelectionSubstitutionInformation, self).__init__(header, load_value)
-        self.name = "carrierSelectionSubstitutionInformation"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "carrierSelectionSubstitutionInformation"
+        super(CarrierSelectionSubstitutionInformation, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class CauseCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(CauseCode, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "causeCode"
+        super(CauseCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ChangeInitiatingParty(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ChangeInitiatingParty, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "changeInitiatingParty"
+        super(ChangeInitiatingParty, self).__init__(header, load_value, name)
 
 
 class CallPosition(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(CallPosition, self).__init__(header, load_value)
-        self.name = "callPosition"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "callPosition"
+        super(CallPosition, self).__init__(header, load_value, name)
 
 
 class ChannelAllocationPriorityLevel(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ChannelAllocationPriorityLevel, self).__init__(header, load_value)
-        self.name = "channelAllocationPriorityLevel"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "channelAllocationPriorityLevel"
+        super(ChannelAllocationPriorityLevel, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ChannelCodings(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ChannelCodings, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(ChannelCodings, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ChargeAreaCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ChargeAreaCode, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(ChargeAreaCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ChargedParty(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ChargedParty, self).__init__(header, load_value)
-        self.name = "chargedParty"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "chargedParty"
+        super(ChargedParty, self).__init__(header, load_value, name)
 
 
 class ChargeInformation(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ChargeInformation, self).__init__(header, load_value)
-        self.name = "chargeInformation"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "chargeInformation"
+        super(ChargeInformation, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ChargingCase(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ChargingCase, self).__init__(header, load_value)
-        self.name = "chargingCase"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "chargingCase"
+        super(ChargingCase, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ChargingIndicator(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ChargingIndicator, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(ChargingIndicator, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ChargingOrigin(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ChargingOrigin, self).__init__(header, load_value)
-        self.name = "originForCharging"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "originForCharging"
+        super(ChargingOrigin, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ChargingUnitsAddition(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ChargingUnitsAddition, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "chargingUnitsAddition"
+        super(ChargingUnitsAddition, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class Counter(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(Counter, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(Counter, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class CRIIndicator(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(CRIIndicator, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "cRIIndicator"
+        super(CRIIndicator, self).__init__(header, load_value, name)
 
 
 class CRIToMS(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(CRIToMS, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "cRIToMS"
+        super(CRIToMS, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_tbcd_string(byte_string)
 
 
 class CUGIndex(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(CUGIndex, self).__init__(header, load_value)
-        self.name = "cUGIndex"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "cUGIndex"
+        super(CUGIndex, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class CUGInterlockCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(CUGInterlockCode, self).__init__(header, load_value)
-        self.name = "cUGInterlockCode"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "cUGInterlockCode"
+        super(CUGInterlockCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class C7CHTMessage(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(C7CHTMessage, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(C7CHTMessage, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class C7ChargingMessage(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(C7ChargingMessage, self).__init__(header, load_value)
-        self.name = "c7ChargingMessage"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "c7ChargingMessage"
+        super(C7ChargingMessage, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class Date(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(Date, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(Date, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string, 2)
 
 
 class DecipheringKeys(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(DecipheringKeys, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "decipheringKeys"
+        super(DecipheringKeys, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class DefaultCallHandling(Tag):
-     def __init__(self, header=None, load_value=True):
-        super(DefaultCallHandling, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "defaultCallHandling"
+        super(DefaultCallHandling, self).__init__(header, load_value, name)
 
 
 class DefaultSMS_Handling(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(DefaultSMS_Handling, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "defaultSMSHandling"
+        super(DefaultSMS_Handling, self).__init__(header, load_value, name)
 
 
 class DeliveryOfErroneousSDU(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(DeliveryOfErroneousSDU, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(DeliveryOfErroneousSDU, self).__init__(header, load_value, name)
 
 
 class DisconnectingParty(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(DisconnectingParty, self).__init__(header, load_value)
-        self.name = "disconnectingParty"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "disconnectingParty"
+        super(DisconnectingParty, self).__init__(header, load_value, name)
 
 
 class Distributed(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(Distributed, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(Distributed, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class EMLPPPriorityLevel(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(EMLPPPriorityLevel, self).__init__(header, load_value)
-        self.name = "eMLPPPriorityLevel"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "eMLPPPriorityLevel"
+        super(EMLPPPriorityLevel, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class EndToEndAccessDataMap(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(EndToEndAccessDataMap, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "endToEndAccessDataMap"
+        super(EndToEndAccessDataMap, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class EosInfo(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(EosInfo, self).__init__(header, load_value)
-        self.name = "eosInfo"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "eosInfo"
+        super(EosInfo, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ErrorRatio(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ErrorRatio, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(ErrorRatio, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class EventCRIToMS(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(EventCRIToMS, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "eventCRIToMS"
+        super(EventCRIToMS, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_tbcd_string(byte_string)
 
 
 class ExchangeIdentity(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ExchangeIdentity, self).__init__(header, load_value)
-        self.name = "exchangeIdentity"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "exchangeIdentity"
+        super(ExchangeIdentity, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_ascii(byte_string)
 
 
 class FaultCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(FaultCode, self).__init__(header, load_value)
-        self.name = "faultCode"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "faultCode"
+        super(FaultCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class FirstRadioChannelUsed(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(FirstRadioChannelUsed, self).__init__(header, load_value)
-        self.name = "firstRadioChannelUsed"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "firstRadioChannelUsed"
+        super(FirstRadioChannelUsed, self).__init__(header, load_value, name)
 
 
 class FixedNetworkUserRate(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(FixedNetworkUserRate, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(FixedNetworkUserRate, self).__init__(header, load_value, name)
 
 
 class FreeFormatData(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(FreeFormatData, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "freeFormatData"
+        super(FreeFormatData, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class FrequencyBandSupported(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(FrequencyBandSupported, self).__init__(header, load_value)
-        self.name = "frequencyBandSupported"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "frequencyBandSupported"
+        super(FrequencyBandSupported, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class GenericDigitsSet(Tag):  # TODO Ojo ver
-    def __init__(self, header=None, load_value=True):
-        super(GenericDigitsSet, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(GenericDigitsSet, self).__init__(header, load_value, name)
 
 
 class GenericNumbersSet(Tag):  # TODO Ojo ver
-    def __init__(self, header=None, load_value=True):
-        super(GenericNumbersSet, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(GenericNumbersSet, self).__init__(header, load_value, name)
 
 
 class GlobalCallReference(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(GlobalCallReference, self).__init__(header, load_value)
-        self.name = "globalCallReference"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "globalCallReference"
+        super(GlobalCallReference, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class GlobalTitle(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(GlobalTitle, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(GlobalTitle, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class GlobalTitleAndSubSystemNumber(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(GlobalTitleAndSubSystemNumber, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(GlobalTitleAndSubSystemNumber, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class GSMCallReferenceNumber(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(GSMCallReferenceNumber, self).__init__(header, load_value)
-        self.name = "gSMCallReferenceNumber"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "gSMCallReferenceNumber"
+        super(GSMCallReferenceNumber, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class IMEI(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(IMEI, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(IMEI, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_tbcd_string(byte_string)
 
 
 class IMEISV(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(IMEISV, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(IMEISV, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_tbcd_string(byte_string)
 
 
 class IMSI(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(IMSI, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(IMSI, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_tbcd_string(byte_string)
 
 
 class INMarkingOfMS(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(INMarkingOfMS, self).__init__(header, load_value)
-        self.name = "iNMarkingOfMS"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "iNMarkingOfMS"
+        super(INMarkingOfMS, self).__init__(header, load_value, name)
 
 
 class INServiceTrigger(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(INServiceTrigger, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "iNServiceTrigger"
+        super(INServiceTrigger, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class IntermediateRate(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(IntermediateRate, self).__init__(header, load_value)
-        self.name = "intermediateRate"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "intermediateRate"
+        super(IntermediateRate, self).__init__(header, load_value, name)
 
 
 class InternalCauseAndLoc(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(InternalCauseAndLoc, self).__init__(header, load_value)
-        self.name = "internalCauseAndLoc"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "internalCauseAndLoc"
+        super(InternalCauseAndLoc, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class IuCodec(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(IuCodec, self).__init__(header, load_value)
-        self.name = "iuCodec"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "iuCodec"
+        super(IuCodec, self).__init__(header, load_value, name)
 
 
 class LCSAccuracy(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(LCSAccuracy, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(LCSAccuracy, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class LCSClientType(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(LCSClientType, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "lCSClientType"
+        super(LCSClientType, self).__init__(header, load_value, name)
 
 
 class LCSDeferredEventType(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(LCSDeferredEventType, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "lCSDeferredEventType"
+        super(LCSDeferredEventType, self).__init__(header, load_value, name)
 
 
 class LegID(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(LegID, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(LegID, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class LevelOfCAMELService(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(LevelOfCAMELService, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "levelOfCAMELService"
+        super(LevelOfCAMELService, self).__init__(header, load_value, name)
 
 
 class LocationCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(LocationCode, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "locationCode"
+        super(LocationCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class LocationEstimate(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(LocationEstimate, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "locationEstimate"
+        super(LocationEstimate, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class LocationInformation(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(LocationInformation, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(LocationInformation, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class MessageReference(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(MessageReference, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "messageReference"
+        super(MessageReference, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class MessageTypeIndicator(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(MessageTypeIndicator, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "messageTypeIndicator"
+        super(MessageTypeIndicator, self).__init__(header, load_value, name)
 
 
 class MiscellaneousInformation(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(MiscellaneousInformation, self).__init__(header, load_value)
-        self.name = "miscellaneousInformation"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "miscellaneousInformation"
+        super(MiscellaneousInformation, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class MobileUserClass1(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(MobileUserClass1, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "mobileUserClass1"
+        super(MobileUserClass1, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class MobileUserClass2(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(MobileUserClass2, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "mobileUserClass2"
+        super(MobileUserClass2, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class MultimediaInformation(Tag):  # TODO ojo verificar
-    def __init__(self, header=None, load_value=True):
-        super(MultimediaInformation, self).__init__(header, load_value)
-        self.name = "multimediaInformation"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "multimediaInformation"
+        super(MultimediaInformation, self).__init__(header, load_value, name)
 
 
 class NetworkCallReference(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(NetworkCallReference, self).__init__(header, load_value)
-        self.name = "networkCallReference"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "networkCallReference"
+        super(NetworkCallReference, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class NumberOfChannels(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(NumberOfChannels, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(NumberOfChannels, self).__init__(header, load_value, name)
 
 
 class NumberOfMeterPulses(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(NumberOfMeterPulses, self).__init__(header, load_value)
-        self.name = "numberOfMeterPulses"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "numberOfMeterPulses"
+        super(NumberOfMeterPulses, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class NumberOfOperations(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(NumberOfOperations, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "numberOfOperations"
+        super(NumberOfOperations, self).__init__(header, load_value, name)
+
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class NumberOfShortMessage(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(NumberOfShortMessage, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "numberOfShortMessages"
+        super(NumberOfShortMessage, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class OperationIdentifier(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(OperationIdentifier, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(OperationIdentifier, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class OptimalRoutingType(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(OptimalRoutingType, self).__init__(header, load_value)
-        self.name = "optimalRoutingType"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "optimalRoutingType"
+        super(OptimalRoutingType, self).__init__(header, load_value, name)
 
 
 class OriginatedCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(OriginatedCode, self).__init__(header, load_value)
-        self.name = "originatedCode"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "originatedCode"
+        super(OriginatedCode, self).__init__(header, load_value, name)
 
 
 class OriginatingLineInformation(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(OriginatingLineInformation, self).__init__(header, load_value)
-        self.name = "originatingLineInformation"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "originatingLineInformation"
+        super(OriginatingLineInformation, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class OutputForSubscriber(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(OutputForSubscriber, self).__init__(header, load_value)
-        self.name = "outputForSubscriber"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "outputForSubscriber"
+        super(OutputForSubscriber, self).__init__(header, load_value, name)
 
 
 class OutputType(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(OutputType, self).__init__(header, load_value)
-        self.name = "outputType"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "outputType"
+        super(OutputType, self).__init__(header, load_value, name)
 
 
 class PartialOutputRecNum(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(PartialOutputRecNum, self).__init__(header, load_value)
-        self.name = "partialOutputRecNum"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "partialOutputRecNum"
+        super(PartialOutputRecNum, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class PChargingVector(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(PChargingVector, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(PChargingVector, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class PositioningDelivery(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(PositioningDelivery, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "positioningDelivery"
+        super(PositioningDelivery, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class PointCodeAndSubSystemNumber(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(PointCodeAndSubSystemNumber, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(PointCodeAndSubSystemNumber, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class PositionAccuracy(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(PositionAccuracy, self).__init__(header, load_value)
-        self.name = "positionAccuracy"
-
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "positionAccuracy"
+        super(PositionAccuracy, self).__init__(header, load_value, name)
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class PresentationAndScreeningIndicator(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(PresentationAndScreeningIndicator, self).__init__(header, load_value)
-        self.name = "presentationAndScreeningIndicator"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "presentationAndScreeningIndicator"
+        super(PresentationAndScreeningIndicator, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ProcedureCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ProcedureCode, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(ProcedureCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_tbcd_string(byte_string)
 
 
 class RadioChannelProperty(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(RadioChannelProperty, self).__init__(header, load_value)
-        self.name = "radioChannelProperty"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "radioChannelProperty"
+        super(RadioChannelProperty, self).__init__(header, load_value, name)
 
 
 class RANAPCauseCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(RANAPCauseCode, self).__init__(header, load_value)
-        self.name = "rANAPCauseCode"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "rANAPCauseCode"
+        super(RANAPCauseCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class RecordSequenceNumber(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(RecordSequenceNumber, self).__init__(header, load_value)
-        self.name = "recordSequenceNumber"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "recordSequenceNumber"
+        super(RecordSequenceNumber, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class RedirectionCounter(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(RedirectionCounter, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(RedirectionCounter, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class RegionalServiceUsed(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(RegionalServiceUsed, self).__init__(header, load_value)
-        self.name = "regionalServiceUsed"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "regionalServiceUsed"
+        super(RegionalServiceUsed, self).__init__(header, load_value, name)
 
 
 class ResponseTimeCategory(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ResponseTimeCategory, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "responseTimeCategory"
+        super(ResponseTimeCategory, self).__init__(header, load_value, name)
 
 
 class RoamingPriorityLevel(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(RoamingPriorityLevel, self).__init__(header, load_value)
-        self.name = "roamingPriorityLevel"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "roamingPriorityLevel"
+        super(RoamingPriorityLevel, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class Route(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(Route, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(Route, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_ascii(byte_string)
 
 
 class RTCDefaultServiceHandling(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(RTCDefaultServiceHandling, self).__init__(header, load_value)
-        self.name = "rTCDefaultServiceHandling"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "rTCDefaultServiceHandling"
+        super(RTCDefaultServiceHandling, self).__init__(header, load_value, name)
 
 
 class RTCFailureIndicator(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(RTCFailureIndicator, self).__init__(header, load_value)
-        self.name = "rTCFailureIndicator"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "rTCFailureIndicator"
+        super(RTCFailureIndicator, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class RTCNotInvokedReason(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(RTCNotInvokedReason, self).__init__(header, load_value)
-        self.name = "rTCNotInvokedReason"
-
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "rTCNotInvokedReason"
+        super(RTCNotInvokedReason, self).__init__(header, load_value, name)
 
 class RTCSessionID(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(RTCSessionID, self).__init__(header, load_value)
-        self.name = "rTCSessionID"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "rTCSessionID"
+        super(RTCSessionID, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class SelectedCodec(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(SelectedCodec, self).__init__(header, load_value)
-        self.name = "selectedCodec"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "selectedCodec"
+        super(SelectedCodec, self).__init__(header, load_value, name)
 
 
 class ServiceCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ServiceCode, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(ServiceCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_tbcd_string(byte_string)
 
 
 class ServiceFeatureCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ServiceFeatureCode, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "serviceFeatureCode"
+        super(ServiceFeatureCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ServiceKey(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ServiceKey, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(ServiceKey, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class ServiceSwitchingType(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(ServiceSwitchingType, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "serviceSwitchingType"
+        super(ServiceSwitchingType, self).__init__(header, load_value, name)
 
 
 class Single(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(Single, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(Single, self).__init__(header, load_value, name)
 
 
 class SMSResult(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(SMSResult, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "sMSResult"
+        super(SMSResult, self).__init__(header, load_value, name)
 
 
 class SpeechCoderPreferenceList(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(SpeechCoderPreferenceList, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(SpeechCoderPreferenceList, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class SpeechCoderVersion(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(SpeechCoderVersion, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(SpeechCoderVersion, self).__init__(header, load_value, name)
 
 
 class SSCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(SSCode, self).__init__(header, load_value)
-        self.name = "sSCode"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "sSCode"
+        super(SSCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class SSFChargingCase(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(SSFChargingCase, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "sSFChargingCase"
+        super(SSFChargingCase, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class SSRequest(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(SSRequest, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "sSRequest"
+        super(SSRequest, self).__init__(header, load_value, name)
 
 
 class SubscriberState(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(SubscriberState, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "subscriberState"
+        super(SubscriberState, self).__init__(header, load_value, name)
 
 
 class SubscriptionType(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(SubscriptionType, self).__init__(header, load_value)
-        self.name = "subscriptionType"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "subscriptionType"
+        super(SubscriptionType, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class SwitchIdentity(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(SwitchIdentity, self).__init__(header, load_value)
-        self.name = "switchIdentity"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "switchIdentity"
+        super(SwitchIdentity, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class TAC(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TAC, self).__init__(header, load_value)
-        self.name = "TAC"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "tAC"
+        super(TAC, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class TargetRNCid(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TargetRNCid, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(TargetRNCid, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class TariffClass(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TariffClass, self).__init__(header, load_value)
-        self.name = "tariffClass"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "tariffClass"
+        super(TariffClass, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class TariffSwitchInd(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TariffSwitchInd, self).__init__(header, load_value)
-        self.name = "tariffSwitchInd"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "tariffSwitchInd"
+        super(TariffSwitchInd, self).__init__(header, load_value, name)
 
 
 class TeleServiceCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TeleServiceCode, self).__init__(header, load_value)
-        self.name = "teleServiceCode"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "teleServiceCode"
+        super(TeleServiceCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class Time(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(Time, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(Time, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string, 2)
 
 
 class TrafficActivityCode(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TrafficActivityCode, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "trafficActivityCode"
+        super(TrafficActivityCode, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
@@ -1040,107 +1167,121 @@ class TrafficActivityCode(Tag):
 
 
 class TransferDelay(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TransferDelay, self).__init__(header, load_value)
-        self.name = "transferDelay"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "transferDelay"
+        super(TransferDelay, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class TransitCarrierInfo(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TransitCarrierInfo, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(TransitCarrierInfo, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class TransparencyIndicator(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TransparencyIndicator, self).__init__(header, load_value)
-        self.name = "transparencyIndicator"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "transparencyIndicator"
+        super(TransparencyIndicator, self).__init__(header, load_value, name)
 
 
 class TriggerData(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TriggerData, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(TriggerData, self).__init__(header, load_value, name)
 
 
 class TriggerDetectionPoint(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TriggerDetectionPoint, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(TriggerDetectionPoint, self).__init__(header, load_value, name)
 
 
 class TypeOfCalledSubscriber(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TypeOfCalledSubscriber, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "typeOfCalledSubscriber"
+        super(TypeOfCalledSubscriber, self).__init__(header, load_value, name)
 
 
 class TypeOfCallingSubscriber(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TypeOfCallingSubscriber, self).__init__(header, load_value)
-        self.name = "typeOfCallingSubscriber"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "typeOfCallingSubscriber"
+        super(TypeOfCallingSubscriber, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class TypeOfLocationRequest(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TypeOfLocationRequest, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "typeOfLocationRequest"
+        super(TypeOfLocationRequest, self).__init__(header, load_value, name)
 
 
 class TypeOfSignalling(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(TypeOfSignalling, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "typeOfSignalling"
+        super(TypeOfSignalling, self).__init__(header, load_value, name)
 
 
 class UILayer1Protocol(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(UILayer1Protocol, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(UILayer1Protocol, self).__init__(header, load_value, name)
 
 
 class UnsuccessfulPositioningDataReason(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(UnsuccessfulPositioningDataReason, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "unsuccessfulPositioningDataReason"
+        super(UnsuccessfulPositioningDataReason, self).__init__(header, load_value, name)
 
 
 class UserClass(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(UserClass, self).__init__(header, load_value)
-        self.name = "userClass"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "userClass"
+        super(UserClass, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class UserRate(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(UserRate, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(UserRate, self).__init__(header, load_value, name)
 
 
 class UserTerminalPosition(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(UserTerminalPosition, self).__init__(header, load_value)
-        self.name = "userTerminalPosition"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "userTerminalPosition"
+        super(UserTerminalPosition, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class UserToUserInformation(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(UserToUserInformation, self).__init__(header, load_value)
-        self.name = "userToUserInformation"
+    def __init__(self, header=None, load_value=True, name=None):
+        if not name:
+            name = "userToUserInformation"
+        super(UserToUserInformation, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 
 
 class UserToUserService1Information(Tag):
-    def __init__(self, header=None, load_value=True):
-        super(UserToUserService1Information, self).__init__(header, load_value)
+    def __init__(self, header=None, load_value=True, name=None):
+        super(UserToUserService1Information, self).__init__(header, load_value, name)
 
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
