@@ -26,9 +26,11 @@ class CallDataRecordFactory(object):
                 if cdr_tag.header.data_length > 0:  # Definite length
                     cdr = call_data_record.CallDataRecord()
                     cdr.tag = cdr_tag
-                    cdr.set_call_module(byte_string[index_from:index_from + cdr_tag.header.data_length])
+                    cdr_data = byte_string[index_from:index_from + cdr_tag.header.data_length]
+                    cdr.decode(cdr_data)
+                    #index_from += cdr.tag.header.total_octets
                     index_from += cdr.call_module.tag.header.total_octets
-                    if cdr_tag.header.data_length > cdr.call_module.tag.header.total_octets:
+                    if cdr.have_event_modules():
                         #  This CDR has event Modules
                         ## Bypass the sequence and decode the event modules
                         sequence_length = cdr_tag.header.data_length - cdr.call_module.tag.header.total_octets
