@@ -25,9 +25,10 @@ class Module(object):
         self.data_tags += (tag, )
 
     def get_data_tag(self, header):
-        tag_class, name = self.__class__._data_tag_types.get(header.number, (ber_decoder.Tag, ""))
-        tag = tag_class(header)
-        tag.name = name
+        tag_class_info = self.__class__._data_tag_types.get(header.number, (ber_decoder.Tag,))
+        tag = tag_class_info[0](header)
+        if len(tag_class_info) == 2:
+            tag.name = tag_class_info[1]
         return tag
 
     def decode(self):

@@ -22,8 +22,8 @@ def main():
     count = 0
     for cdr in CallDataRecordFactory.get_cdrs_from_data(data):
         count += 1
-        print("CDR: {}".format(count))
-        cdr.pretty_print()
+        #print("CDR: {}".format(count))
+        #cdr.pretty_print()
     print(count)
 if __name__ == "__main__":
     main()
