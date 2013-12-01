@@ -46,7 +46,54 @@ Call Module - MSTerminatingSMSinMSC (7)
 [messageTypeIndicator (34)] - 00
 [originatingAddress (33)] - 413014621269f3
 ```
+```
+print(cdr)
+CallDataRecord
 
+print(cdr.call_module)
+Call Module - MSTerminatingSMSinMSC (7)
+
+cdr.call_module.data_tags
+([dateForStartOfCharge (6)] - 130507,
+ [exchangeIdentity (10)] - MSRSR1,
+ [recordSequenceNumber (2)] - 7149508,
+ [timeForStartOfCharge (7)] - 150708,
+ [outputType (102)] - 4,
+ [callIdentificationNumber (1)] - 1758587,
+ [chargedParty (9)] - 0,
+ [outgoingRoute (12)] - BURS1GO,
+ [calledSubscriberIMEI (5)] - 012791001771710,
+ [calledSubscriberIMEISV (43)] - 0127910017717101,
+ [calledSubscriberIMSI (4)] - 722077140145585,
+ [firstCalledLocationInformation (13)] - 27f27009610dee,
+ [numberOfShortMessages (28)] - 1,
+ [calledPartyNumber (3)] - 11543413836335,
+ [frequencyBandSupported (26)] - 0,
+ [teleServiceCode (14)] - 21,
+ [mSCIdentification (11)] - 1154079007103,
+ [lastCalledLocationInformation (29)] - 27f27009610dee,
+ [serviceCentreAddress (15)] - 1154079000801,
+ [tAC (0)] - 0e020b,
+ [originForCharging (8)] - 4,
+ [messageTypeIndicator (34)] - 00,
+ [originatingAddress (33)] - 413014621269f3)
+
+
+cdr.call_module.data_tags[0]
+[dateForStartOfCharge (6)] - 130507
+
+cdr.call_module.data_tags[0].value
+'130507'
+
+cdr.call_module.data_tags[0].name
+'dateForStartOfCharge'
+
+cdr.call_module.data_tags[0].header
+Type:0 Number:6 HeaderOctets:2 DataLength: 3
+
+cdr.call_module.data_tags[0].get_type
+'primitive'
+```
 I don't have examples of all the values so some of the encodings could be wrong.
 
 TODO:
