@@ -7,6 +7,7 @@ Stockholm is a python module to decode the CDR from Ericsson
 Example:
 ========
 The two main methods are get_cdrs_from_file() and get_cdrs_from_data() from CallDataRecordFactory.
+
 These two static methods return a Generator to obtain all the CDRs from a file or raw data of bytes.
 
 ```python
@@ -50,5 +51,8 @@ I don't have examples of all the values so some of the encodings could be wrong.
 
 TODO:
 ======
+Add more documentation.
+
 Fix nested data tags from Call Modules.
-Do the decoding of the data tags of the Event Modules
+
+Do the decoding of the data tags of the Event Modules.
