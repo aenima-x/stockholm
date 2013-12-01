@@ -89,7 +89,7 @@ class Header(object):
         self.length_decode(byte_string)
 
     def __repr__(self):
-        return "Type:{0.type} Number:{0.number} HeaderOctets:{0.header_octets} DataLength: {0.data_length}".format(self)
+        return "Type:{0.type} Number:{0.number} HeaderOctets:{0.octets} DataLength: {0.data_length}".format(self)
 
     def length_decode(self, byte_string):
         first_octet = ord(byte_string[self.identifier_octets])
