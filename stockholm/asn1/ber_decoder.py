@@ -139,7 +139,7 @@ class Tag(object):
             if self.nested_tags:
                 return "[{0:<3}]\n\t{1}".format(self.header.number, "\n\t".join((str(x) for x in self.nested_tags)))
             else:
-                return "Tag(number={0.header.number})(type={0.get_type})(header length={0.header.header_octets}" \
+                return "Tag(number={0.header.number})(type={0.get_type})(header length={0.header.octets}" \
                        "[identifier={0.header.identifier_octets}, length={0.header.length_octets}])" \
                        "(data length={0.header.data_length})(extra data={0.header.extra_data_length})".format(self)
 
