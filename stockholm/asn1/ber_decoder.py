@@ -5,9 +5,6 @@ import struct
 log = logging.getLogger(__name__)
 log.addHandler(logging.NullHandler())
 
-#def get_binary(data):  # TODO Ver de borrar si no se usa
-#    return bin(struct.unpack('@B', data)[0])[2:].zfill(8)
-
 
 def tag_type_decode(byte_string):
     """

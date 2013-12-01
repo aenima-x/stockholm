@@ -731,7 +731,7 @@ class MobileUserClass2(Tag):
         return get_octet_string(byte_string)
 
 
-class MultimediaInformation(Tag):  # TODO ojo verificar
+class MultimediaInformation(Tag):  # TODO ojo es una secuencia
     def __init__(self, header=None, byte_string=None, load_value=True, name=None):
         if not name:
             name = "multimediaInformation"
@@ -1296,3 +1296,5 @@ class UserToUserService1Information(Tag):
     def decode_value(self, byte_string):
         return get_octet_string(byte_string)
 ######
+
+# Event Modules Data Tags
