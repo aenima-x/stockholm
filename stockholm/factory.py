@@ -19,18 +19,16 @@ class CallDataRecordFactory(object):
             ARBITRARY_CDR_TAG_LENGTH = len(byte_string)
         index_from = 0
         while index_from != len(byte_string):
-            cdr_tag = ber_decoder.Tag(load_value=False)
             cdr_tag_data = byte_string[index_from:index_from + ARBITRARY_CDR_TAG_LENGTH]
-            cdr_tag.decode(cdr_tag_data)
+            cdr_tag = ber_decoder.Tag(byte_string=cdr_tag_data, load_value=False)
             if cdr_tag.type == 1:  # constructed
                 if cdr_tag.header.data_length > 0:  # Definite length
-                    cdr = call_data_record.CallDataRecord(tag=cdr_tag)
                     cdr_data = byte_string[index_from:index_from + cdr_tag.total_octets]
-                    cdr.decode(cdr_data)
+                    cdr = call_data_record.CallDataRecord(tag=cdr_tag, byte_string=cdr_data)
                     index_from += cdr.tag.total_octets
                     yield cdr
                 else:
-                    index_from += cdr_tag.octets
+                    index_from += cdr_tag.header_octets
             else:  # Primitive
                 raise ValueError("A primitive Tag can't be a CallDataRecord Tag {}".format(index_from))
             while index_from < len(byte_string):
@@ -38,8 +36,6 @@ class CallDataRecordFactory(object):
                     index_from += 1
                 else:
                     break
-
-
 
     @staticmethod
     def get_cdrs_from_file(path_to_file):

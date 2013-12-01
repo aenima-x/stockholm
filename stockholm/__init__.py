@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Nicolas Rebagliati (nicolas.rebaglati@aenima-x.com.ar)'
-VERSION = (1, 0, 0, 'alpha', 0)
+VERSION = (0, 1, 0, 'alpha', 0)
 
 
 def get_version():

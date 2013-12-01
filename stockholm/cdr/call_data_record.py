@@ -9,14 +9,30 @@ logger.addHandler(logging.NullHandler())
 
 
 class CallDataRecord(object):
-    call_modules_dict = {0: Transit, 1: MSOriginating, 2: RoamingCallForwarding, 3: CallForwarding,
-                         4: MSTerminating, 5: MSOriginatingSMSinMSC, 6: MSOriginatingSMSinSMS_IWMSC,
-                         7: MSTerminatingSMSinMSC, 8: MSTerminatingSMSinSMS_GMSC, 9: SSProcedure,
-                         13: TransitINOutgoingCall, 14: INIncomingCall, 15: INOutgoingCall, 17: ISDNOriginating,
-                         18: ISDNCallForwarding, 19: ISDNSSProcedure, 21: SCFChargingOutput, 24: LocationServices}
+    call_modules_dict = {0: Transit, 1: MSOriginating,
+                         2: RoamingCallForwarding,
+                         3: CallForwarding,
+                         4: MSTerminating,
+                         5: MSOriginatingSMSinMSC,
+                         6: MSOriginatingSMSinSMS_IWMSC,
+                         7: MSTerminatingSMSinMSC,
+                         8: MSTerminatingSMSinSMS_GMSC,
+                         9: SSProcedure,
+                         13: TransitINOutgoingCall,
+                         14: INIncomingCall,
+                         15: INOutgoingCall,
+                         17: ISDNOriginating,
+                         18: ISDNCallForwarding,
+                         19: ISDNSSProcedure,
+                         21: SCFChargingOutput,
+                         24: LocationServices}
 
-    event_modules_dict = {10: AoCEventModule, 11: SSIEventModule, 16: INServiceDataEventModule,
-                          20: ChargeRateChangeEventModule, 23: ISDNSSInvocationEventModule, 25: HandOverEventModule}
+    event_modules_dict = {10: AoCEventModule,
+                          11: SSIEventModule,
+                          16: INServiceDataEventModule,
+                          20: ChargeRateChangeEventModule,
+                          23: ISDNSSInvocationEventModule,
+                          25: HandOverEventModule}
 
     def __init__(self, tag=None, byte_string=None):
         super(CallDataRecord, self).__init__()

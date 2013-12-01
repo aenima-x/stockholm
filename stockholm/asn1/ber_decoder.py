@@ -22,7 +22,7 @@ def tag_type_decode(byte_string):
 
 def tag_identifier_decode(byte_string):
     """
-    Return the tag number and the number of identifier octets.
+    Return the tag number and the number of identifier header_octets.
     :param byte_string: string of bytes
     :return: (int, int)
     """
@@ -38,7 +38,7 @@ def tag_identifier_decode(byte_string):
 
 def lvq_decode(byte_string):
     """
-    Return the value of the byte string in base 128, and the number of octets.
+    Return the value of the byte string in base 128, and the number of header_octets.
     :param byte_string: string of bytes
     :return: (int, int)
     """
@@ -68,6 +68,7 @@ def long_format_length_decode(byte_string):
         shift -= 8
     return length
 
+
 def get_bit(number, index):
     """
     Return the bit at index position (starts from 0) from the number in base 2.
@@ -90,9 +91,8 @@ class Header(object):
         self.extra_data_length = 0
         self.length_decode(byte_string)
 
-
     def __repr__(self):
-        return "Type:{0.type} Number:{0.number} Length: {0.data_length}".format(self)
+        return "Type:{0.type} Number:{0.number} HeaderOctets:{0.header_octets} DataLength: {0.data_length}".format(self)
 
     def length_decode(self, byte_string):
         first_octet = ord(byte_string[self.identifier_octets])
@@ -104,7 +104,7 @@ class Header(object):
             if first_octet & 128 == 128:  # long format
                 number_of_extra_length_octets = first_octet - 128
                 self.length_octets = 1 + number_of_extra_length_octets
-                self.octets = self.identifier_octets + self.length_octets  # The offset of octets to read the content
+                self.octets = self.identifier_octets + self.length_octets  # The offset of header_octets to read the content
                 index = self.identifier_octets + 1
                 self.data_length = long_format_length_decode(byte_string[index:index + number_of_extra_length_octets])
                 self.extra_data_length = 0
@@ -135,29 +135,29 @@ class Tag(object):
     def __repr__(self):
         if self.header.type == 0:
             if self.name:
-                return "[{0.name}] - {0.value}".format(self)
+                return "[{0.name} ({0.number})] - {0.value}".format(self)
             else:
                 return "[{0.header.number:<3}] - {0.value}".format(self)
         elif self.header.type == 1:
             if self.nested_tags:
                 return "[{0:<3}]\n\t{1}".format(self.header.number, "\n\t".join((str(x) for x in self.nested_tags)))
             else:
-                return "Tag(number={0.header.number})(type={0.get_type})(header length={0.header.octets}" \
+                return "Tag(number={0.header.number})(type={0.get_type})(header length={0.header.header_octets}" \
                        "[identifier={0.header.identifier_octets}, length={0.header.length_octets}])" \
                        "(data length={0.header.data_length})(extra data={0.header.extra_data_length})".format(self)
 
     def decode(self, byte_string):
         """
-        Decode the Tag type, number and number of the Tag identifiers octets.
+        Decode the Tag type, number and number of the Tag identifiers header_octets.
         :param byte_string: string of bytes
         """
         if not self.header:
             self.header = Header(byte_string)
         if self.load_value:
             if self.header.type == 0:
-                self.value = self.decode_value(byte_string[self.header.octets:self.header.total_octets])
+                self.decode_primitive(byte_string)
             elif self.header.type == 1:
-                self.value = byte_string[self.header.octets:self.header.total_octets]
+                self.decode_constructed(byte_string)
 
     @property
     def number(self):
@@ -168,12 +168,16 @@ class Tag(object):
         return self.header.type
 
     @property
-    def octets(self):
+    def header_octets(self):
         return self.header.octets
 
     @property
     def total_octets(self):
         return self.header.total_octets
+
+    @property
+    def data_length(self):
+        return self.header.data_length
 
     @property
     def get_type(self):
@@ -186,6 +190,12 @@ class Tag(object):
         if self.header.data_length == 0:
             type_name = "{}-Indefinite".format(type_name)
         return type_name
+
+    def decode_constructed(self, byte_string):
+        self.value = byte_string[self.header.octets:self.header.total_octets]
+
+    def decode_primitive(self, byte_string):
+        self.value = self.decode_value(byte_string[self.header.octets:self.header.total_octets])
 
     def decode_value(self, byte_string):
         """

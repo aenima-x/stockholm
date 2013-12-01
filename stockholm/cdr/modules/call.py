@@ -740,7 +740,7 @@ class MSTerminatingSMSinMSC(CallModule):
                        5: (ct.IMEI, "calledSubscriberIMEI"),
                        6: (ct.Date, "dateForStartOfCharge"),
                        7: (ct.Time, "timeForStartOfCharge"),
-                       8: (ct.Time, "originForCharging"),
+                       8: (ct.ChargingOrigin, None),
                        9: (ct.ChargedParty, None),
                        10: (ct.ExchangeIdentity, None),
                        11: (ct.AddressString, "mSCIdentification"),

@@ -20,9 +20,6 @@ def get_octet_string(byte_string, fill_zeros=0):
 def get_hex_string(byte_string):
     return "".join(map(lambda x: x.encode('hex'), byte_string))
 
-def get_int_octet_string(byte_string):
-    return int(byte_string.encode('hex'), 16)
-
 
 def get_ascii(byte_string):
     return byte_string.encode('ascii')
@@ -56,7 +53,7 @@ class AddressStringExtended(Tag):
         super(AddressStringExtended, self).__init__(header, byte_string, load_value, name)
 
     def decode_value(self, byte_string):
-        return get_octet_string(byte_string)
+        return get_hex_string(byte_string)
 
 
 class AgeOfLocationEstimate(Tag):
@@ -242,6 +239,10 @@ class ChargedParty(Tag):
         if not name:
             name = "chargedParty"
         super(ChargedParty, self).__init__(header, byte_string, load_value, name)
+
+    def decode_value(self, byte_string):
+        return get_int(byte_string)
+
 
 
 class ChargeInformation(Tag):
@@ -580,6 +581,9 @@ class INMarkingOfMS(Tag):
             name = "iNMarkingOfMS"
         super(INMarkingOfMS, self).__init__(header, byte_string, load_value, name)
 
+    def decode_value(self, byte_string):
+        return get_int(byte_string)
+
 
 class INServiceTrigger(Tag):
     def __init__(self, header=None, byte_string=None, load_value=True, name=None):
@@ -677,7 +681,7 @@ class LocationInformation(Tag):
         super(LocationInformation, self).__init__(header, byte_string, load_value, name)
 
     def decode_value(self, byte_string):
-        return get_octet_string(byte_string)
+        return get_hex_string(byte_string)
 
 
 class MessageReference(Tag):
@@ -777,7 +781,7 @@ class NumberOfShortMessage(Tag):
         super(NumberOfShortMessage, self).__init__(header, byte_string, load_value, name)
 
     def decode_value(self, byte_string):
-        return get_octet_string(byte_string)
+        return get_int(byte_string)
 
 
 class OperationIdentifier(Tag):
@@ -1116,7 +1120,7 @@ class TAC(Tag):
         super(TAC, self).__init__(header, byte_string, load_value, name)
 
     def decode_value(self, byte_string):
-        return get_octet_string(byte_string)
+        return get_hex_string(byte_string)
 
 
 class TargetRNCid(Tag):
@@ -1134,7 +1138,7 @@ class TariffClass(Tag):
         super(TariffClass, self).__init__(header, byte_string, load_value, name)
 
     def decode_value(self, byte_string):
-        return get_octet_string(byte_string)
+        return get_int(byte_string)
 
 
 class TariffSwitchInd(Tag):
@@ -1143,15 +1147,14 @@ class TariffSwitchInd(Tag):
             name = "tariffSwitchInd"
         super(TariffSwitchInd, self).__init__(header, byte_string, load_value, name)
 
+    def decode_value(self, byte_string):
+        return get_int(byte_string)
 
 class TeleServiceCode(Tag):
     def __init__(self, header=None, byte_string=None, load_value=True, name=None):
         if not name:
             name = "teleServiceCode"
         super(TeleServiceCode, self).__init__(header, byte_string, load_value, name)
-
-    def decode_value(self, byte_string):
-        return get_octet_string(byte_string)
 
 
 class Time(Tag):

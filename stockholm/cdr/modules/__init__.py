@@ -34,7 +34,7 @@ class Module(object):
         if self.tag:
             if self.tag.header.type == 1 and self.tag.header.data_length > 0:
                 index_from = 0
-                data_tags_octets_counter = self.tag.header.data_length  # number of octets for data tags
+                data_tags_octets_counter = self.tag.header.data_length  # number of header_octets for data tags
                 cdr_last_octet = index_from + self.tag.header.data_length  # pointer to the end of the CDR
                 while data_tags_octets_counter > 0:  # as long I have bytes to read
                     tag_content = self.tag.value[index_from:cdr_last_octet]
