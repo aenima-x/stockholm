@@ -8,7 +8,7 @@ from .cdr import call_data_record
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.NullHandler())
 
-import sys
+
 class CallDataRecordFactory(object):
 
     @staticmethod
