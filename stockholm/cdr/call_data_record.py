@@ -28,11 +28,10 @@ class CallDataRecord(object):
 
     def decode(self, byte_string):
         if not self.tag:
-            self.tag = ber_decoder.Tag(byte_string)
-        self.set_call_module(byte_string)
+            self.tag = ber_decoder.Tag(byte_string=byte_string)
+        self.set_call_module(byte_string[self.tag.header.octets:])  # the byte string without my tag header
         if self.have_event_modules():
-            pass
-            #self.find_event_modules(byte_string)
+            self.find_event_modules(byte_string[self.tag.header.octets:])  # the byte string without my tag header
 
     def have_event_modules(self):
         if self.tag.header.data_length > self.call_module.tag.header.total_octets:
@@ -41,12 +40,9 @@ class CallDataRecord(object):
             return False
 
     def find_event_modules(self, byte_string):
-        #  This CDR has event Modules
-
         index_from = self.call_module.tag.header.total_octets  # start of the sequence
         ## Bypass the sequence and decode the event modules
         sequence_length = self.tag.header.data_length - self.call_module.tag.header.total_octets
-
         end_of_sequence_octet = index_from + sequence_length
         event_module_sequence_tag = ber_decoder.Tag(load_value=False)
         event_module_sequence_tag.decode(byte_string[index_from:end_of_sequence_octet])
@@ -70,7 +66,7 @@ class CallDataRecord(object):
         new_tag.decode(byte_string)
         if new_tag.header.number not in self.__class__.call_modules_dict:
             raise ValueError("Invalid CallModule Tag {}".format(new_tag))
-        self.call_module = self.__class__.call_modules_dict.get(new_tag.header.number)(new_tag)
+        self.call_module = self.__class__.call_modules_dict.get(new_tag.header.number)(tag=new_tag, byte_string=byte_string)
         self.call_module.decode()
 
     def set_event_module(self, byte_string):
@@ -78,7 +74,8 @@ class CallDataRecord(object):
         new_tag.decode(byte_string)
         if new_tag.header.number not in self.__class__.event_modules_dict:
             raise ValueError("Invalid EventModule Tag {}".format(new_tag))
-        event_module = self.__class__.event_modules_dict.get(new_tag.header.number)(new_tag)
+        event_module = self.__class__.event_modules_dict.get(new_tag.header.number)(tag=new_tag, byte_string=byte_string)
+        event_module.decode()
         self.add_event_module(event_module)
 
     def add_event_module(self, event_module):

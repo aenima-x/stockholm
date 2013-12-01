@@ -123,12 +123,14 @@ class Tag(object):
     """
     _type_name = ('primitive', 'constructed')
 
-    def __init__(self, header=None, load_value=True, name=None):
+    def __init__(self, header=None, byte_string=None, load_value=True, name=None):
         self.header = header
         self.value = None
         self.nested_tags = ()
         self.load_value = load_value
         self.name = name
+        if byte_string:
+            self.decode(byte_string)
 
     def __repr__(self):
         if self.header.type == 0:
@@ -156,6 +158,22 @@ class Tag(object):
                 self.value = self.decode_value(byte_string[self.header.octets:self.header.total_octets])
             elif self.header.type == 1:
                 self.value = byte_string[self.header.octets:self.header.total_octets]
+
+    @property
+    def number(self):
+        return self.header.number
+
+    @property
+    def type(self):
+        return self.header.type
+
+    @property
+    def octets(self):
+        return self.header.octets
+
+    @property
+    def total_octets(self):
+        return self.header.total_octets
 
     @property
     def get_type(self):

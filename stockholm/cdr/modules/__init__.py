@@ -37,7 +37,6 @@ class Module(object):
                 data_tags_octets_counter = self.tag.header.data_length  # number of octets for data tags
                 cdr_last_octet = index_from + self.tag.header.data_length  # pointer to the end of the CDR
                 while data_tags_octets_counter > 0:  # as long I have bytes to read
-                    # TODO crear un header y en base a eso crear el tag correspondiente
                     tag_content = self.tag.value[index_from:cdr_last_octet]
                     header = ber_decoder.Header(tag_content)
                     data_tag = self.get_data_tag(header)

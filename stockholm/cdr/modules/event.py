@@ -28,7 +28,7 @@ class EventModule(Module):
         return "Event Module - {} ({})".format(self.__class__.__name__, self.tag.number)
 
 
-class AoCEventModule(Module):
+class AoCEventModule(EventModule):
     _data_tag_types = {
         0: (ct.TAC, None),
         1: (ct.CRIToMS, None),
@@ -43,7 +43,7 @@ class AoCEventModule(Module):
         super(AoCEventModule, self).__init__(tag, byte_string)
 
 
-class SSIEventModule(Module):
+class SSIEventModule(EventModule):
     _data_tag_types = {
         0: (ct.TAC, None),
         1: (ct.SSCode, None),
@@ -62,7 +62,7 @@ class SSIEventModule(Module):
         super(SSIEventModule, self).__init__(tag, byte_string)
 
 
-class ServiceSwitchEventModule(Module):
+class ServiceSwitchEventModule(EventModule):
     _data_tag_types = {
         0: (ct.TAC, None),
         1: (ct.Time, "timeForEvent"),
@@ -74,7 +74,7 @@ class ServiceSwitchEventModule(Module):
         super(ServiceSwitchEventModule, self).__init__(tag, byte_string)
 
 
-class INServiceDataEventModule(Module):
+class INServiceDataEventModule(EventModule):
     _data_tag_types = {
         0: (ct.Distributed, "chargePartyDistributed"),
         1: (ct.Single, "chargePartySingle"),
@@ -95,7 +95,7 @@ class INServiceDataEventModule(Module):
         super(INServiceDataEventModule, self).__init__(tag, byte_string)
 
 
-class ChargeRateChangeEventModule(Module):
+class ChargeRateChangeEventModule(EventModule):
     _data_tag_types = {
         0: (ct.TAC, None),
         1: (ct.Time, "timeForEvent"),
@@ -111,7 +111,7 @@ class ChargeRateChangeEventModule(Module):
         super(ChargeRateChangeEventModule, self).__init__(tag, byte_string)
 
 
-class ISDNSSInvocationEventModule(Module):
+class ISDNSSInvocationEventModule(EventModule):
     _data_tag_types = {
         0: (ct.TrafficActivityCode, None),
         1: (ct.Tag, "incompleteCallDataIndicator")
@@ -121,7 +121,7 @@ class ISDNSSInvocationEventModule(Module):
         super(ISDNSSInvocationEventModule, self).__init__(tag, byte_string)
 
 
-class HandOverEventModule(Module):
+class HandOverEventModule(EventModule):
     _data_tag_types = {
         0: (ct.TAC, None),
         1: (ct.Time, "timeForEvent"),

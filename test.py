@@ -5,6 +5,7 @@ from stockholm.asn1 import ber_decoder
 from stockholm.factory import CallDataRecordFactory
 from stockholm.cdr.modules import call
 from stockholm.cdr.modules import event
+from stockholm.cdr import call_data_record
 
 
 #class TestASN1(unittest.TestCase):
@@ -81,6 +82,10 @@ class TestCallDataRecord(unittest.TestCase):
         count = sum(1 for x in CallDataRecordFactory.get_cdrs_from_data(data))
         self.assertEqual(4, count)
 
+    def test_CallDataRecord_with_event_module(self):
+        data = '\xa0g\xaeT\x95\x06MSVLZ3\x8d\x03\x11\xac\xd4\x9ff\x01\x04\x81\x02\x00\x00\x83\x02\x00\x01\x80\x03Y\xdf"\x82\x05&\xe6\x12\x00\x00\x84\x02\x00\x08\x98\x05&\xe6\x12\x00\x00\x99\x07\x11Ep\t\x00\x11\xf7\xa5\x15\x80\x01\x02\x81\x04\x00\x00\x00\x0f\x85\n\x92\x00\x11\x04Ep\t\x00\x05\x02\x9c\x02\x05\x800\x80\xb0\x0b\x86\x03\x061\x02\x88\x014\x89\x01\x01\x00\x00'
+        cdr = call_data_record.CallDataRecord(byte_string=data)
+        self.assertEqual(3, len(cdr.event_modules[0].data_tags))
 
 
 if __name__ == "__main__":
