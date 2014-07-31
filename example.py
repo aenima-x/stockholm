@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from stockholm.factory import CallDataRecordFactory
+from stockholm.factory import get_cdrs_from_file
 
 
 logging.basicConfig(level=logging.DEBUG,
@@ -19,7 +19,7 @@ def main():
     f = open(cdr_file)
     f.close()
     count = 0
-    for cdr in CallDataRecordFactory.get_cdrs_from_file(cdr_file):
+    for cdr in get_cdrs_from_file(cdr_file):
         count += 1
         print("CDR: {}".format(count))
         cdr.pretty_print()

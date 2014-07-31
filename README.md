@@ -23,13 +23,13 @@ This is an output example:
 CallDataRecord
 Call Module - MSTerminatingSMSinMSC (7)
 [dateForStartOfCharge (6)] - 130507
-[exchangeIdentity (10)] - MSRSR1
+[exchangeIdentity (10)] - MXXXR1
 [recordSequenceNumber (2)] - 7149508
 [timeForStartOfCharge (7)] - 150708
 [outputType (102)] - 4
 [callIdentificationNumber (1)] - 1758587
 [chargedParty (9)] - 0
-[outgoingRoute (12)] - BURS1GO
+[outgoingRoute (12)] - XXXS1GO
 [calledSubscriberIMEI (5)] - 012791001771710
 [calledSubscriberIMEISV (43)] - 0127910017717101
 [calledSubscriberIMSI (4)] - 722077140145585
@@ -55,13 +55,13 @@ Call Module - MSTerminatingSMSinMSC (7)
 
 cdr.call_module.data_tags
 ([dateForStartOfCharge (6)] - 130507,
- [exchangeIdentity (10)] - MSRSR1,
+ [exchangeIdentity (10)] - MXXXR1,
  [recordSequenceNumber (2)] - 7149508,
  [timeForStartOfCharge (7)] - 150708,
  [outputType (102)] - 4,
  [callIdentificationNumber (1)] - 1758587,
  [chargedParty (9)] - 0,
- [outgoingRoute (12)] - BURS1GO,
+ [outgoingRoute (12)] - XXXS1GO,
  [calledSubscriberIMEI (5)] - 012791001771710,
  [calledSubscriberIMEISV (43)] - 0127910017717101,
  [calledSubscriberIMSI (4)] - 722077140145585,
