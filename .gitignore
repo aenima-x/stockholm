@@ -1,2 +1,4 @@
 .idea
+.gitignore
 *.pyc
+FN*
