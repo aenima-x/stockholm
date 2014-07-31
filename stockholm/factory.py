@@ -10,7 +10,7 @@ logger.addHandler(logging.NullHandler())
 
 
 class CallDataRecordFactory(object):
-    
+
     @staticmethod
     def get_cdrs_from_data(byte_string):
         if len(byte_string) >= 100:
