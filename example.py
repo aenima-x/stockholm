@@ -15,8 +15,7 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    #cdr_file = "TTGSM-3896.20130507150708"
-    cdr_file = "FN-20070712235814579839-SDPAR2-viafessdp1-2-0-1-0014"
+    cdr_file = "TTGSM-3896.20130507150708"
     f = open(cdr_file)
     f.close()
     count = 0
